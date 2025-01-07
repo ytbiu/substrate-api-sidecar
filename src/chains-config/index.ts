@@ -79,7 +79,7 @@ const specToControllerMap: { [x: string]: ControllerConfig } = {
 	bifrost_polkadot: bifrostPolkadotControllers,
 	heiko: heikoControllers,
 	parallel: parallelControllers,
-	node: dbcControllers,
+	"DeepBrainChain": dbcControllers,
 };
 
 /**
@@ -95,6 +95,7 @@ export function getControllersForSpec(api: ApiPromise, specName: string): Abstra
 
 	// If we don't have the specName in the specToControllerMap we use the default
 	// contoller config
+	console.warn(`No controllers found for specName ${specName}, using default controllers`);
 	return getControllersFromConfig(api, defaultControllers);
 }
 
